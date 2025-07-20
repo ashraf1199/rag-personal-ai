@@ -1,0 +1,17 @@
+langchain[all]
+openai
+faiss-cpu
+tiktoken
+python-dotenv
+PyPDF2
+unstructured
+chromadb
+streamlit
+Flask
+pyaudio
+SpeechRecognition
+transformers
+torch
+sentence-transformers
+langchain-community
+pymupdf
