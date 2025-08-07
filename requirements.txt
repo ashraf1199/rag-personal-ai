@@ -14,4 +14,3 @@ torch
 sentence-transformers
 langchain-community
 pymupdf
-hashlib
