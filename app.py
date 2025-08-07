@@ -27,7 +27,7 @@ def setup_rag(pdf_path):
 # - "mistralai/Mistral-7B-Instruct-v0.1" : requires GPU
 # - "sshleifer/tiny-gpt2"       : good for quick CPU testing
 
-    model_name = "Qwen/Qwen3-0.6B"
+    model_name = "sshleifer/tiny-gpt2"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name)
 # HuggingFace pipeline parameters:
