@@ -38,7 +38,7 @@ def setup_rag(pdf_path):
 # - max_new_tokens: maximum words to generate per response
 # - temperature: randomness of responses (0.7 = balanced)
 # - device: set to 0 for GPU, -1 for CPU
-    llm_pipe = pipeline("text-generation", model=model, tokenizer=tokenizer, device=-1, max_new_tokens=256)
+    llm_pipe = pipeline("text-generation", model=model, tokenizer=tokenizer, device=-1, max_new_tokens=256, temperature=0.7)
 
     llm = HuggingFacePipeline(pipeline=llm_pipe)
 
