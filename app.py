@@ -30,13 +30,13 @@ ensure_folder(UPLOAD_DIR)
 
 # ---------- Cache the LLM once (global) ----------
 @st.cache_resource(show_spinner=False)
-def load_llm(model_name: str = "openai-community/gpt2"):
+def load_llm(model_name: str = "google/flan-t5-base"):
     # GPT-2 is tiny but not instruction-tuned; for better Q/A try "google/flan-t5-base"
     tokenizer = AutoTokenizer.from_pretrained(model_name, use_auth_token=HF_TOKEN)
     model = AutoModelForCausalLM.from_pretrained(model_name, use_auth_token=HF_TOKEN)
 
     llm_pipe = pipeline(
-        "text-generation",          # if you switch to flan-t5-base, use "text2text-generation"
+        "text2text-generation",          # if you switch to flan-t5-base, use "text2text-generation"
         model=model,
         tokenizer=tokenizer,
         device=-1,                  # CPU (set 0 for GPU)
