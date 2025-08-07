@@ -7,7 +7,10 @@ from langchain_community.llms import HuggingFacePipeline
 from langchain.chains import RetrievalQA
 from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
+hf_token = os.getenv("HF_TOKEN")
 # Setup model and retriever
 @st.cache_resource
 def setup_rag(pdf_path):
@@ -27,9 +30,10 @@ def setup_rag(pdf_path):
 # - "mistralai/Mistral-7B-Instruct-v0.1" : requires GPU
 # - "sshleifer/tiny-gpt2"       : good for quick CPU testing
 
-    model_name = "tencent/Hunyuan-7B-Instruct"
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(model_name)
+    model_name = "openai-community/gpt2"
+    tokenizer = AutoTokenizer.from_pretrained(model_name, use_auth_token=hf_token)
+    model = AutoModelForCausalLM.from_pretrained(model_name, use_auth_token=hf_token)
+
 # HuggingFace pipeline parameters:
 # - max_new_tokens: maximum words to generate per response
 # - temperature: randomness of responses (0.7 = balanced)
