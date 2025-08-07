@@ -8,7 +8,6 @@ unstructured
 chromadb
 streamlit
 Flask
-pyaudio
 SpeechRecognition
 transformers
 torch
